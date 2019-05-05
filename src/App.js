@@ -75,33 +75,13 @@ class App extends Component {
 
     return (
       <div className="App">
-    {/* app */}
-      {/* header */}
-        <header>
-          <h1>ELF Computing</h1>
-          <h3>Laptops</h3>
-          <h5>Customize your laptop</h5>  
-        </header> 
-      {/* form  */}
+          <Header />
+
+
         <main>
-          <section className="main__form">
-            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-            {/*features list   */}
-              {/* feature */}
-            { features }
-          </section>
-          {/* summary */}
-          <section className="main__summary">
-            <h3>NEW GREENLEAF 2018</h3>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Your Price: </div>
-              <div className="summary__total__value">
-              { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                  .format(total) }
-              </div>
-            </div>
-          </section>
+          <Form />
+       
+          <Summary />  
         </main>
       </div>
     );
