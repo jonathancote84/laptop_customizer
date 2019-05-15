@@ -3,55 +3,38 @@ import './Summary.css';
 
 
 
-class Summary extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-          selected: {
-            Processor: {
-                name: '17th Generation Intel Core HB (7 Core with donut spare)',
-                cost: 700
-              },
-            "Operating System": {
-                name: 'Ubuntu Linux 16.04',
-                cost: 200
-              },
-            "Video Card":{
-                name: 'Toyota Corolla 1.5v',
-                cost: 1150.98
-              },
-            Display: {
-                name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
-                cost: 1500
-              }
-          }
-        }
-      }
+export default class Summary extends Component {
+
     render() {
-        const summary = Object.keys(this.state.selected)
+        console.log(this.props.selected)
+        //here the state is passed to summary 
+        const summary = Object.keys(this.props.selected)
             .map(key => <div className="summary__option" key={key}>
             <div className="summary__option__label">{key}  </div>
-            <div className="summary__option__value">{this.state.selected[key].name}</div>
+            <div className="summary__option__value">{this.props.selected[key].name}</div>
             <div className="summary__option__cost">
                 { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                    .format(this.state.selected[key].cost) }
+                    .format(this.props.selected[key].cost) }
             </div>
         </div>)
+        //here's the state is sent to summary total 
+        const total = Object.keys(this.props.selected)
+        .reduce((acc, curr) => acc + this.props.selected[curr].cost, 0);   
 
         return (
             <section className="main__summary">
                 <h3>NEW GREENLEAF 2018</h3>
+                {/* reanders summary based on state  */}
                 {summary}
                 <div className="summary__total">
                 <div className="summary__total__label">Your Price: </div>
                 <div className="summary__total__value">
-                {/* { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                    .format(total) } */}
+                {/* renders total here  */}
+                { new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
+                    .format(total) }
                 </div>
                 </div>
             </section>            
         )
     }
 }
-
-export default Summary;
