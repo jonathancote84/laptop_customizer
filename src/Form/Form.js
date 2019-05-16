@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import './Form.css';
-// import Feature from '../Feature/Feature';
-
-
-
-
 
 
 export default class Form extends Component {
@@ -37,15 +32,11 @@ export default class Form extends Component {
       });
     }      
 
-      render() {
-
-     
+    render() {
         return(
             <section className="main__form">
                 <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-                {this.renderFeatures(this.props)}
-                
-               
+                {this.renderFeatures(this.props)}  
             </section>
         )
     }

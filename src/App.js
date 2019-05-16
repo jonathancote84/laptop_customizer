@@ -39,8 +39,7 @@ class App extends Component {
     });
   }
 
-  render() {
-    
+  render() {   
     return (
       <div className="App">
           <Header />
@@ -48,10 +47,8 @@ class App extends Component {
           <Form 
             features={this.props.features}
             selected={this.state.selected}
-            updateFeature={this.updateFeature}
-             
+            updateFeature={this.updateFeature}       
           />
-       
           <Summary selected={this.state.selected}/>  
         </main>
       </div>
