@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Summary.css';
 
 export default class Summary extends Component {
-
     render() {
         console.log(this.props.selected)
         //here the state is passed to summary 
@@ -18,7 +17,6 @@ export default class Summary extends Component {
         //here's the state is sent to summary total 
         const total = Object.keys(this.props.selected)
         .reduce((acc, curr) => acc + this.props.selected[curr].cost, 0);   
-
         return (
             <section className="main__summary">
                 <h3>NEW GREENLEAF 2018</h3>

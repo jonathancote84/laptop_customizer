@@ -3,18 +3,15 @@ import './Form.css';
 
 
 export default class Form extends Component {
-
     // creates seperate function for the renderfeatures action 
-    renderFeatures({ features, selected, updateFeature}) {
-      
+    renderFeatures({ features, selected, updateFeature}) {   
       return Object.keys(features)
       .map(key => {
         const options = features[key].map((item, index) => {
           const selectedClass = item.name === selected[key].name ? 'feature__selected' : '';
           const featureClass = 'feature__option ' + selectedClass;
           return <li key={index} className="feature__item">
-            <div className={featureClass}
-              
+            <div className={featureClass}  
               onClick={()=> updateFeature(key, item)}>
                 { item.name }
                 ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
@@ -22,7 +19,6 @@ export default class Form extends Component {
             </div>
           </li>
         });
-
         return <div className="feature" key={key}>
           <div className="feature__name">{key}</div>
           <ul className="feature__list">
@@ -31,7 +27,6 @@ export default class Form extends Component {
         </div>
       });
     }      
-
     render() {
         return(
             <section className="main__form">
